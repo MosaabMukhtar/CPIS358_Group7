@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="doStyles.css">
+<title>Interactive Habit-Do List</title>
+ <meta charset="UTF-8">
+ <meta name="keywords" content="habit tracker, to do list, interactive">
+ <style>
+    body {background-color: rgba(255, 255, 255, 0.884);}
+    h1 {color: rgb(221, 16, 177);}
+    p {color: rgb(0, 0, 0);}
+    .table-border {
+      border: 1px dashed red;
+    }
+    .top-right {
+      float: right;
+      margin-top: 0px;
+      margin-left: 15px;
+      margin-bottom: 15px;
+    }
+ </style>
+ <style>
+div {
+  position: absolute;
+}
+.yellow {
+  width: 200px; height: 250px;
+  background: rgb(245, 241, 27);
+  top: 900px; left: 1050px;
+  z-index: 0;
+}
+.red {
+  width: 200px; height: 250px;
+  background: rgb(207, 14, 14);
+  top: 1000px; left: 1000px;
+  z-index: 1;
+}
+.text {
+  background: rgb(255, 255, 255);
+  border: 1px solid black;
+  padding: 10px 20px;
+  top: 1020px; left: 1030px;
+  z-index: 2;
+  color: rgb(23, 208, 233);
+}
+</style>
+</head>
+
+<body>
+<h1>Welcome to your own Interactive Habit-Do List!</h1>
+<article>
+
+</article>
+<nav>    
+   <ol>
+    <li><a href="#rating"> rating</a></li>
+    <li><a href="#tableofhabits">table of habits</a>    </li>
+    <li><a href="#specifictasks">Specific tasks</a></li>
+   </ol> 
+</nav>
+   <img src="interactive_list.png" width="200" height="200" alt="maybe theres an error." class="top-right box-shadow">
+   <a href="about_Us.html">
+    <img src="about_us.png" width="100" height="100">  </a>
+<table border="1"  id="tableofhabits" class="tableborder">
+   <caption><strong>Table of Common Habits</strong></caption>
+    <th>Catagories</th>
+    <th>Tasks/Habits</th>
+    <th>Difficulty</th>
+    <tr><td>Mental</td>
+    <td>Meditation</td>
+    <td>Medium/Hard</td></tr>
+    <tr><td>Physical</td>
+    <td>Exercise</td>
+    <td>Easy/Medium</td></tr>
+    <tfoot><tr><td>Spiritual</td><td colspan="2">Praying 5x times a day. </td></tr></tfoot>
+</table>
+  <form method="post">
+  <p>How do you feel today?</p>
+    <input type="radio" name="feeling today" value="bad">
+    <label>Could be better</label><br>
+    <input type="radio" name="feeling today" value="okay">
+    <label>Okay</label><br>
+    <input type="radio" name="feeling today" value="great">
+    <label>Great</label><br>
+    <p>What common Habit/do task did you manage today?</p>
+    <input type="checkbox" name="habit">
+    <label>Meditate</label><br>
+        <input type="checkbox" name="task">
+    <label>Pray</label><br>
+        <input type="checkbox" name="task">
+    <label>Exercise</label><br>
+    </p>
+    <p><label id="specifictasks">Enter your own specific tasks: <input type="text" name="stasks"></label></p>
+    </form>
+
+<form method="post">
+    <label><h2 style="color:rgb(0, 89, 255)">Rate our website</h2></label>
+    <p>
+    <input type="hidden" name="subject" value="feedback form">
+    <input type="hidden" name="redirect" value="main.html">
+    </p>
+    <p>
+    <label>First name:</label> <input type="text" name="fname" size="25" minlength="2" maxlength="30" placeholder="Enter your first name" required>
+    </p>
+    <p>
+    <label>Last name: </label> <input type="text" name="lname" size="25" minlength="2" maxlength="30" placeholder="Enter your last name" required>
+    </p>
+    
+    <p><label>Contact Email:</label>
+      <input type="test" name="email" size="20" maxlength="25" placeholder="Name@Domain.com" required> 
+    </p>
+      <br>
+    <p>Rating:
+    <select name="rating" id="rating">
+        <option>select</option>
+        <option>bad</option>
+        <option>good</option>
+        <option>great</option>
+    </select> </p>
+    <p>
+        <textarea name="comments" rows="10" cols="30">Additional info/Suggestions.</textarea>
+<br>
+<label>Rating via bar: <input name="range" input type="range" value="50" min="0" max="100"></label><br>
+
+<div class="yellow"></div>
+<div class="red"></div>
+<div class="text">idk how should i use these
+</div>
+<h3>Hope you enjoyed.</h3>
+</body>
+
+
+</html>

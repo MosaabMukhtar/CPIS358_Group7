@@ -1,0 +1,10 @@
+h5 {color: blue;}
+h3 {color:crimson;}
+body {color: rgb(0, 0, 0);}
+h4 {color: purple;}
+.simple-shadow {
+  box-shadow: 5px 5px #888;}
+  .tableborder {
+    border: 1px solid rgb(11, 160, 180);
+    color: rgb(54, 196, 54);
+  }
