@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="doStyles.css">
+<script>
+    function validateForm() {
+    var username = document.getElementById("uname").value;
+    var password = document.getElementById("pword").value;
+
+    if (username === "") {
+        alert("Username cannot be empty or spaces only.");
+        return false;
+    }
+
+    if (password === "") {
+        alert("Password cannot be empty or spaces only.");
+        return false;
+    }
+
+    if (password.length < 8) {
+        alert("Password must be at least 8 characters long.");
+        return false;
+    }
+
+    return true;
+}
+</script>
+<style>
+body {
+background-color: rgba(230, 255, 230, 0.884);
+font-family: sans-serif;
+} 
+
+form {
+padding: 30px;
+border-radius: 15px;
+max-width: 400px;
+margin: 40px auto;
+box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+input[type="text"], 
+input[type="password"] {
+width: 100%;
+padding: 10px;
+margin: 8px 0 20px;
+border: 1px solid #25A18E;
+border-radius: 5px;
+box-sizing: border-box;
+}
+
+input[type="submit"] {
+width: 100%;
+background-color: #00A5CF;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+font-size: 16px;
+font-weight: bold;
+}
+
+.back-link {
+text-align: center;
+display: block;
+margin-top: 20px;
+color: #004E64;
+font-weight: bold;
+}
+
+</style>
+</head>
+
+<body>
+<nav class="utility-menu dropdown">
+        <button class="dropdown-toggle">Menu</button>
+        <ul class="dropdown-content">
+            <li><a href="Habit-Do List.html" title="Home Page">Home Page</a></li>
+            <li><a href="login.html" title="Login Page">login Page</a></li>
+            <li><a href="sign_Up.html" title="Sign up">Sign up</a></li>
+        </ul>
+    </nav>
+    <h1 style="color:#00A5CF; text-align: center;">Resume Your Lifestyle</h1>
+
+    <form method="post" action="welcome.html">
+        <h2 style="text-align: center; color: #25A18E;">Login</h2>
+        
+        <label for="uname">Username</label>
+        <input type="text" id="uname" name="username" placeholder="Enter your Username" required>
+
+        <label for="pword">Password</label>
+        <input type="password" id="pword" name="password" placeholder="Enter password" required>
+      
+        <input type="submit" value="Continue Gaining" onclick="return validateForm">
+
+<div style="text-align: center; margin-top: 15px; font-size: 0.9em;">
+ New to this? <a href="sign_Up.html" style="color:#00A5CF;">Sign up</a>
+</div>
+</form>
+<a href="Habit-Do List.html" class="back-link">← Back to Home Page</a>
+</body>
+</html>

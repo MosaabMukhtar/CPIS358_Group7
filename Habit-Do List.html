@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="doStyles.css">
+    <title>Interactive Habit-Do List</title>
+ <meta charset="UTF-8">
+ <meta name="keywords" content="habit tracker, to do list, interactive">
+ <script>
+function addCustomTask() {
+    var taskValue = prompt("What is the specific task you want to add?");
+
+    if (taskValue !== null && taskValue !== "") {
+        var newTask = document.createElement("div");
+        newTask.innerHTML = "- " + taskValue; 
+        var container = document.getElementById("taskListDisplay");
+        container.appendChild(newTask);
+    } 
+    else {
+        alert("Dont Cheat!");
+    }
+}
+function validateHabitForm() {
+    var bad = document.getElementById("bad");
+    var okay = document.getElementById("okay");
+    var great = document.getElementById("great");
+
+    if (!bad.checked && !okay.checked && !great.checked) {
+        alert("Please select how you are feeling today before submitting!");
+        return false; 
+    }
+
+    alert("Habit check-in submitted successfully!");
+    return true; 
+}
+
+function validateFeedbackForm() {
+    var form = document.getElementById("feedbackForm");
+    var firstName = form.fname.value;
+    var lastName = form.lname.value;
+    var email = form.email.value;
+    var rating = form.rating.value;
+
+    if (firstName === "") {
+        alert("First name is required.");
+        return false;
+    }
+
+    if (lastName === "") {
+        alert("Last name is required.");
+        return false;
+    }
+
+    if (email === "") {
+        alert("Contact email is required.");
+        return false;
+    }
+
+    if (rating === "select" || rating === "") {
+        alert("Please select a rating for our website.");
+        return false;
+    }
+
+    alert("Thank you for your feedback!");
+    return true;
+}
+
+function setDark() {
+    var changeButton = document.getElementById("mode");
+    
+    if (document.body.style.backgroundColor === "black") { 
+        document.body.style.color = "#004E64";
+        document.body.style.backgroundColor = "rgba(230, 255, 230, 0.884)";
+        changeButton.textContent = "Dark Mode";
+    }
+    else {
+        document.body.style.color = "white";
+        document.body.style.backgroundColor = "black";
+        changeButton.textContent = "Light Mode";
+    }
+}
+</script>
+ <style>
+body {background-color: rgba(230, 255, 230, 0.884);}
+    p {color: #004E64; font-family: sans-serif;}
+    .top-right {
+  float: right;
+}
+ </style>
+</head>
+
+<body>
+<h1 style="color:#00A5CF; text-align: center;">Welcome to your own Interactive Habit-Do List!</h1>
+<article>
+this website is where you can turn your own repetitive habits and tedious tasks into something a little more fun.
+<br>
+ our goal is to make your goals and new lifestyle that you strive so hard to achieve a bit more managable.
+ <br>
+ We built this website for a simple reason: We suck at sticking to schedules. We tried paper planners (lost them), calendar apps (ignored the notifications), and sticking Post-it notes to our foreheads (ineffective).
+</article>
+<nav class="utility-menu dropdown">
+    <button class="dropdown-toggle">Menu</button>
+      <ul class="dropdown-content">
+            <li><a href="Habit-Do List.html" title="Home Page">Home Page</a></li>
+            <li><a href="login.html" title="Login Page">login Page</a></li>
+            <li><a href="sign_Up.html" title="Sign up">Sign up</a></li>
+      </ul>
+</nav>
+
+<nav>    
+   <ol>
+    <li><a href="#rating"> rating</a></li>
+    <li><a href="#tableofhabits">table of habits</a>    </li>
+    <li><a href="#specifictasks">Specific tasks</a></li>
+   </ol> 
+</nav>
+<button id="mode" onclick="setDark()" style="padding: 5px 10px; cursor: pointer;">Dark Mode</button>
+   <img src="interactive_list.png" width="200" height="200" alt="error." class="top-right box-shadow">
+   <div class="top-right" style="text-align: center; margin-right: 15px;">
+       <a href="about_Us.html" class="box-shadow" style="text-decoration: none; display: block;">
+           <img src="about_us.png" width="100" height="100" style="display: block;">  
+       </a>
+       <span style="font-size: 12px; font-weight: bold; color: #004E64; margin-top: 5px; display: block;">Click me</span>
+   </div>
+<table border="1"  id="tableofhabits" class="tableborder">
+   <caption><strong>Table of Common Habits</strong></caption>
+    <th>Catagories</th>
+    <th>Tasks/Habits</th>
+    <th>Difficulty</th>
+    <tr><td>Mental</td>
+    <td>Meditation</td>
+    <td>Medium/Hard</td></tr>
+    <tr><td>Physical</td>
+    <td>Exercise</td>
+    <td>Easy/Medium</td></tr>
+    <tfoot><tr><td>Spiritual</td><td colspan="2">Praying 5x times a day. </td></tr></tfoot>
+</table>
+  <form method="post" id="habitForm">
+  <p>How do you feel today?</p>
+    <input type="radio" name="feeling today" value="bad" id="bad">
+    <label>Could be better</label><br>
+    <input type="radio" name="feeling today" value="okay" id="okay">
+    <label>Okay</label><br>
+    <input type="radio" name="feeling today" value="great" id="great">
+    <label>Great</label><br>
+    <p>What common Habit/do task did you manage today?</p>
+    <input type="checkbox" name="habit">
+    <label>Meditate</label><br>
+        <input type="checkbox" name="task">
+    <label>Pray</label><br>
+        <input type="checkbox" name="task">
+    <label>Exercise</label><br>
+    </p>
+    <p>
+        <label id="specifictasks">Enter your own specific tasks:</label>
+        <button type="button" onclick="addCustomTask()">Add Custom Task</button>
+    </p>
+    
+    <div id="taskListDisplay" style="margin-bottom: 10px; color: #004E64; font-weight: bold; padding-left: 20px;"></div>
+
+    <input type="submit" value="Submit" onclick="return validateHabitForm()">
+</form>
+
+<form method="post" id="feedbackForm">
+    <label><h2 style="color:#004E64">Rate our website</h2></label>
+    <p>
+    <input type="hidden" name="subject" value="feedback form">
+    <input type="hidden" name="redirect" value="main.html">
+    </p>
+    <p>
+    <label>First name:</label> <input type="text" name="fname" size="25" minlength="2" maxlength="30" placeholder="Enter your first name" required>
+    </p>
+    <p>
+    <label>Last name: </label> <input type="text" name="lname" size="25" minlength="2" maxlength="30" placeholder="Enter your last name" required>
+    </p>
+    
+    <p><label>Contact Email:</label>
+      <input type="text" name="email" size="20" maxlength="25" placeholder="Name@Domain.com" required> 
+    </p>
+      <br>
+    <p>Rating:
+    <select name="rating" id="rating">
+        <option>select</option>
+        <option>bad</option>
+        <option>good</option>
+        <option>great</option>
+    </select> </p>
+        <textarea name="comments" rows="10" cols="30">Additional info/Suggestions.</textarea>
+        <br>
+        <input type="submit" value="Submit" onclick="return validateFeedbackForm()">
+        </form>
+<h3>Hope you enjoyed.</h3>
+</body>
+
+</html>
